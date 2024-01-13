@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, useHistory } from 'react-router-dom';
 import { AdminContext } from '../../context/AdminContext';
 
 const PrivateRoute = ({ children, ...rest }) => {
   const { state } = useContext(AdminContext);
   const { adminInfo } = state;
+  const history = useHistory();
 
   return (
     <Route
@@ -15,7 +16,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: '/Login',
+              pathname: '/login',
               state: { from: location },
             }}
           />
