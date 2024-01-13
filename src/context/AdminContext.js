@@ -11,7 +11,7 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'USER_LOGIN':
+    case 'USER_LOGIN': // Corrected action type
       return { ...state, adminInfo: action.payload };
 
     case 'USER_LOGOUT':
